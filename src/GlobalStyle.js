@@ -4,13 +4,15 @@ const GlobalStyle = createGlobalStyle`
     body {
         margin: 0;
         padding: 0;
-        background: red;
+        background-image: linear-gradient(to right, #C680FF, #633CCB);
+        overflow: hidden;
+        font-family: sans-serif;
     };
 
     html {
         margin: 0;
         padding: 0;
-    }
+    };
 `;
 
 export default GlobalStyle;
