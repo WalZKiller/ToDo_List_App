@@ -4,15 +4,15 @@ import React, { useState, useEffect } from 'react';
 import { Wrapper, TaskListHeader, TaskListContent, IndividualTask  } from './TaskListCard.styles';
 
 //Components
+import TaskListForm from '../TaskListForm';
 import Button from '../Button';
-import InputText from '../InputText';
 
 const TaskListCard = () => {
 
     const [text, setText] = useState('');
 
     function save() {
-        localStorage.setItem("idtasklist", text)
+        localStorage.setItem("idtasklist", '')
     };
 
     function get() {
@@ -26,15 +26,7 @@ const TaskListCard = () => {
             <TaskListHeader>My List:</TaskListHeader>
             <TaskListContent>
                 <IndividualTask>
-                    <Button 
-                    text="+"
-                    callback={save}
-                    />
-                    <InputText />
-                    <Button 
-                    text="Get"
-                    callback={get}
-                    />
+                   <TaskListForm />
                 </IndividualTask>
             </TaskListContent>
         </Wrapper>

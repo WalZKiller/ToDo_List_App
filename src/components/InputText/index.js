@@ -7,16 +7,15 @@ const InputText = () => {
 
     const [state, setState] = useState('');
 
-    console.log('gg');
-
     return (
         <Wrapper
             type="text"
             placeholder="New list name" 
             value = {state} 
-            onChange={e => setState(e.target.value)}
+            onChange={e => setState(e.currentTarget.value)}
         />
     );
 };
+
 
 export default InputText;
