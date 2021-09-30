@@ -7,6 +7,7 @@ const GlobalStyle = createGlobalStyle`
         background-image: linear-gradient(to right, #C680FF, #633CCB);
         overflow: hidden;
         font-family: sans-serif;
+        box-sizing: border-box;
     };
 
     html {

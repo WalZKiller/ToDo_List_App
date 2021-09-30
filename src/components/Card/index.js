@@ -1,22 +1,16 @@
 import React from 'react';
 
 //Style
-import { Wrapper, TaskList, TaskListHeader, TaskListContent, IndividualTask, TaskCard, PlusButton, Input } from './Card.styles';
+import { Wrapper } from './Card.styles';
+import TaskListCard from '../TaskListCard';
+import TaskCardWhite from '../TaskCardWhite';
+
 
 const Card = () => (
 
     <Wrapper>
-        <TaskList>
-            <TaskListHeader>My List:</TaskListHeader>
-            <TaskListContent>
-                <IndividualTask>
-                    <PlusButton>+</PlusButton>
-                    <Input placeholder="New list name"></Input>
-                </IndividualTask>
-            </TaskListContent>
-
-        </TaskList>
-        <TaskCard />
+        <TaskListCard />
+        <TaskCardWhite />
     </Wrapper>
 );
 

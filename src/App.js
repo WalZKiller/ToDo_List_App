@@ -6,7 +6,7 @@ import GlobalStyle from './GlobalStyle';
 //Font
 import GlobalFont from './fonts/fonts';
 
-//Components
+//Components 
 import Card from './components/Card';
 
 function App() {
@@ -15,9 +15,7 @@ function App() {
     <>
       <GlobalStyle />
       <GlobalFont />
-      <Card>
-
-      </Card>
+      <Card />
       
     </>
   );
