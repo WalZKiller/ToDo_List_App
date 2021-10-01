@@ -5,29 +5,23 @@ import { Wrapper, TaskListHeader, TaskListContent, IndividualTask  } from './Tas
 
 //Components
 import TaskListForm from '../TaskListForm';
-import Button from '../Button';
+import AddedTaskList from '../AddedTaskList';
+
+//Hook
+import { useTaskListFetch } from '../../hooks/useTaskListFetch';
 
 const TaskListCard = () => {
 
-    const [text, setText] = useState('');
-
-    function save() {
-        localStorage.setItem("idtasklist", '')
-    };
-
-    function get() {
-        let x = localStorage.getItem("idtasklist")
-        console.log(x);
-    };
+    const { addNewTaskList, setAddNewTaskList } = useTaskListFetch();
+    const [state, setState] = useState(1);
 
     return (
     <>
         <Wrapper>
             <TaskListHeader>My List:</TaskListHeader>
             <TaskListContent>
-                <IndividualTask>
-                   <TaskListForm />
-                </IndividualTask>
+                {state > addNewTaskList && <AddedTaskList text="New task 2"/>}
+                <TaskListForm />
             </TaskListContent>
         </Wrapper>
     </>

@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 //Styles
-import { Button, InputField } from './TaskListForm.styles';
+import { Wrapper, Button, InputField } from './TaskListForm.styles';
+
+//Hook
+import { useTaskListFetch } from '../../hooks/useTaskListFetch';
 
 const TaskListForm = () => {
 
-    const [state, setState] = useState('');
+    const { state, setState, setAddNewTaskList } = useTaskListFetch();
 
     function save() {
         localStorage.setItem("idtasklist", state)
@@ -16,16 +19,22 @@ const TaskListForm = () => {
         console.log(x);
     };
 
+    useEffect(() => {
+         
+    })
+
     return (
         <>
-            <Button type='button' onClick={save}>+</Button>
-            <InputField 
-                type="text"
-                placeholder="New list name" 
-                value = {state} 
-                onChange={e => setState(e.target.value)}
-            />
-            <Button type='button' onClick={get}>ambik</Button>
+            <Wrapper>
+                <Button type='button' onClick={save}>+</Button>
+                <InputField 
+                    type="text"
+                    placeholder="New list name" 
+                    value = {state} 
+                    onChange={e => setState(e.target.value)}
+                />
+                <Button type='button' onClick={get}>ambik</Button>
+            </Wrapper>
         </>
     );
 };
