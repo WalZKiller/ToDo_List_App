@@ -3,7 +3,7 @@ import React from 'react';
 //Style
 import { Wrapper, PointSymbol, NewTaskText } from './AddedTaskList.styles';
 
-const AddedTaskList = ({ text }) => {
+const AddedTaskList = ({ text, render }) => {
 
     return (
         <>

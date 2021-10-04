@@ -1,17 +1,25 @@
 import React, { useEffect, useState } from 'react';
 
 //Styles
-import { Wrapper, Button, InputField } from './TaskListForm.styles';
+import { Wrapper, Content, Button, InputField } from './TaskListForm.styles';
 
 //Hook
 import { useTaskListFetch } from '../../hooks/useTaskListFetch';
 
+//Components
+import AddedTaskList from '../AddedTaskList';
+
 const TaskListForm = () => {
 
-    const { state, setState, setAddNewTaskList } = useTaskListFetch();
+    const { state, setState, addNewTaskList, setAddNewTaskList } = useTaskListFetch();
+
+    /*const initialAddNewTaskList = {
+        text = ""
+    }*/
 
     function save() {
         localStorage.setItem("idtasklist", state)
+        setAddNewTaskList(true)
     };
 
     function get() {
@@ -19,21 +27,24 @@ const TaskListForm = () => {
         console.log(x);
     };
 
-    useEffect(() => {
-         
-    })
+    /*function saveAndRender() {
+        localStorage.setItem("idtasklist", state)
+    };*/
 
     return (
         <>
             <Wrapper>
-                <Button type='button' onClick={save}>+</Button>
-                <InputField 
-                    type="text"
-                    placeholder="New list name" 
-                    value = {state} 
-                    onChange={e => setState(e.target.value)}
-                />
-                <Button type='button' onClick={get}>ambik</Button>
+                {addNewTaskList && <AddedTaskList text={state} />}
+                <Content>
+                    <Button type='button' onClick={save}>+</Button>
+                    <InputField 
+                        type="text"
+                        placeholder="New list name" 
+                        value = {state} 
+                        onChange={e => setState(e.target.value)}
+                    />
+                    <Button type='button' onClick={get}>ambik</Button>
+                </Content>
             </Wrapper>
         </>
     );
