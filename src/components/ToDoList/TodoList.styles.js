@@ -7,14 +7,4 @@ export const Wrapper = styled.div`
     padding: 0 10px;
     margin-bottom: 0.5rem;
 `;
-
-export const PointSymbol = styled.div`
-    color: white;
-    font-size: 2rem;
-    margin-right: 1rem;
-`;
-
-export const NewTaskText = styled.div`
-    color: white;
-`;
     

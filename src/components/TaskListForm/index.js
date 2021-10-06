@@ -1,23 +1,17 @@
 import React, { useEffect, useState } from 'react';
 
 //Styles
-import { Wrapper, Content, Button, InputField } from './TaskListForm.styles';
+import { Wrapper, Content, Button, Form, InputField } from './TaskListForm.styles';
 
 //Hook
 import { useTaskListFetch } from '../../hooks/useTaskListFetch';
 
-//Components
-import AddedTaskList from '../AddedTaskList';
-
 const TaskListForm = () => {
 
-    const { state, setState, addNewTaskList, setAddNewTaskList } = useTaskListFetch();
+    /*const { state, setState, addNewTaskList, setAddNewTaskList } = useTaskListFetch();*/
+    const [input, setInput] = useState('');
 
-    /*const initialAddNewTaskList = {
-        text = ""
-    }*/
-
-    function save() {
+    /*function save() {
         localStorage.setItem("idtasklist", state)
         setAddNewTaskList(true)
     };
@@ -25,25 +19,36 @@ const TaskListForm = () => {
     function get() {
         let x = localStorage.getItem("idtasklist")
         console.log(x);
+    };*/
+
+    const handleChange = (e) => {
+        setInput(e.target.value)
     };
 
-    /*function saveAndRender() {
-        localStorage.setItem("idtasklist", state)
-    };*/
+    const handleSubmit = (e, onSubmit) => {
+        e.preventDefault();
+        /*onSubmit({
+            id: Math.floor(Math.random() * 10000),
+            text: input,
+        });*/
+
+        setInput('');
+    };
 
     return (
         <>
             <Wrapper>
-                {addNewTaskList && <AddedTaskList text={state} />}
                 <Content>
-                    <Button type='button' onClick={save}>+</Button>
-                    <InputField 
-                        type="text"
-                        placeholder="New list name" 
-                        value = {state} 
-                        onChange={e => setState(e.target.value)}
-                    />
-                    <Button type='button' onClick={get}>ambik</Button>
+                    <Form onSubmit={handleSubmit}>
+                        <Button>Add todo</Button>
+                        <InputField 
+                            type="text"
+                            placeholder="New list name" 
+                            value = {input} 
+                            onChange={handleChange}
+                            
+                        />
+                    </Form>
                 </Content>
             </Wrapper>
         </>

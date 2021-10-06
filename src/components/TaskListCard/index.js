@@ -5,16 +5,17 @@ import { Wrapper, TaskListHeader, TaskListContent, IndividualTask  } from './Tas
 
 //Components
 import TaskListForm from '../TaskListForm';
-import AddedTaskList from '../AddedTaskList';
 
 //Hook
 
 const TaskListCard = () => {
 
+    const [todolist, setTodolist] = useState([]);
+
     return (
     <>
         <Wrapper>
-            <TaskListHeader>My List:</TaskListHeader>
+            <TaskListHeader>What's The Plan For Today?</TaskListHeader>
             <TaskListContent>
                 <TaskListForm />
             </TaskListContent>
