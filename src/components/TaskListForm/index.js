@@ -6,7 +6,7 @@ import { Wrapper, Content, Button, Form, InputField } from './TaskListForm.style
 //Hook
 import { useTaskListFetch } from '../../hooks/useTaskListFetch';
 
-const TaskListForm = () => {
+const TaskListForm = ({onSubmit}) => {
 
     /*const { state, setState, addNewTaskList, setAddNewTaskList } = useTaskListFetch();*/
     const [input, setInput] = useState('');
@@ -25,12 +25,12 @@ const TaskListForm = () => {
         setInput(e.target.value)
     };
 
-    const handleSubmit = (e, onSubmit) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        /*onSubmit({
+        onSubmit({
             id: Math.floor(Math.random() * 10000),
             text: input,
-        });*/
+        });
 
         setInput('');
     };

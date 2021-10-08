@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Wrapper, TaskListHeader, TaskListContent, IndividualTask  } from './TaskListCard.styles';
 
 //Components
-import TaskListForm from '../TaskListForm';
+import ToDoList from '../ToDoList';
 
 //Hook
 
@@ -17,7 +17,7 @@ const TaskListCard = () => {
         <Wrapper>
             <TaskListHeader>What's The Plan For Today?</TaskListHeader>
             <TaskListContent>
-                <TaskListForm />
+                <ToDoList />
             </TaskListContent>
         </Wrapper>
     </>
