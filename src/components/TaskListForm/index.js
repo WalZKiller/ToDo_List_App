@@ -40,7 +40,7 @@ const TaskListForm = ({onSubmit}) => {
             <Wrapper>
                 <Content>
                     <Form onSubmit={handleSubmit}>
-                        <Button>Add todo</Button>
+                        <Button>+</Button>
                         <InputField 
                             type="text"
                             placeholder="New list name" 

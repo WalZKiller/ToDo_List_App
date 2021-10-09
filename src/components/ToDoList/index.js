@@ -21,6 +21,12 @@ const ToDoList = () => {
         setTodos(newTodo);
         console.log(todo, ...todos);
     };
+
+    const removeTodo = (id) => {
+        const removeArr = [...todos].filter(todo => todo.id !== id)
+
+        setTodos(removeArr)
+    };
     
     const completeTodo = (id) => {
         let updatedTodos = todos.map(todo => {
@@ -30,7 +36,7 @@ const ToDoList = () => {
             return todo;
         })
         setTodos(updatedTodos);
-    }
+    };
 
     return (
         <>
@@ -38,7 +44,7 @@ const ToDoList = () => {
                 <TaskListForm onSubmit={addTodo}/>
             </Wrapper>
             <AddedTodo>
-                    <Todo todos={todos} completeTodo={completeTodo}/>
+                    <Todo todos={todos} completeTodo={completeTodo} removeTodo={removeTodo}/>
             </AddedTodo>
         </>
     )
