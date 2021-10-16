@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 //Style
 import { Wrapper, AddedTodo } from './TodoList.styles';
@@ -20,6 +20,14 @@ const ToDoList = () => {
 
         setTodos(newTodo);
         console.log(todo, ...todos);
+    };
+
+    const updateTodo = (todoId, newValue) => {
+        if (!newValue.text || /^\s*$/.test(newValue.text)) {
+            return
+        };
+
+        setTodos(prev => prev.map(item => item.id === todoId ? newValue : item))
     };
 
     const removeTodo = (id) => {
@@ -44,7 +52,7 @@ const ToDoList = () => {
                 <TaskListForm onSubmit={addTodo}/>
             </Wrapper>
             <AddedTodo>
-                    <Todo todos={todos} completeTodo={completeTodo} removeTodo={removeTodo}/>
+                    <Todo todos={todos} completeTodo={completeTodo} removeTodo={removeTodo} updateTodo={updateTodo}/>
             </AddedTodo>
         </>
     )

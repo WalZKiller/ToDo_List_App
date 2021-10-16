@@ -14,9 +14,11 @@ export const RemoveIcon = styled.img`
     width: 25px;
     height: 25px;
     margin: 0 20px;
+    cursor: pointer;
 `;
 
 export const EditIcon = styled.img`
     width: 25px;
     height: 25px;
+    cursor: pointer;
 `;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 //Styles
 import { Wrapper, Content, Button, Form, InputField } from './TaskListForm.styles';
@@ -10,6 +10,12 @@ const TaskListForm = ({onSubmit}) => {
 
     /*const { state, setState, addNewTaskList, setAddNewTaskList } = useTaskListFetch();*/
     const [input, setInput] = useState('');
+
+    const inputRef = useRef();
+
+    useEffect(() => {
+        inputRef.current.focus();
+    });
 
     /*function save() {
         localStorage.setItem("idtasklist", state)
@@ -46,7 +52,7 @@ const TaskListForm = ({onSubmit}) => {
                             placeholder="New list name" 
                             value = {input} 
                             onChange={handleChange}
-                            
+                            ref={inputRef}
                         />
                     </Form>
                 </Content>
